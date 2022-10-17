@@ -7,6 +7,7 @@ pygame.init()
 bgClr = (0, 0, 0)
 scr = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 sound = pygame.mixer.Sound("C:\Windows\Media\Windows Message Nudge.wav")
+laugh = pygame.mixer.Sound("laugh.wav")
 setWindowPos = windll.user32.SetWindowPos
 
 NOSIZE = 1
@@ -33,6 +34,8 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             pygame.mixer.Sound.play(sound)
+        if event.type == pygame.KEYDOWN:
+            pygame.mixer.Sound.play(laugh)
         if event.type == pygame.WINDOWSHOWN:
             if Sound.is_muted() == True:
                 Sound.mute()
